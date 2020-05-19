@@ -26,13 +26,11 @@ console.log( fifaData.filter(final => final.Year===2014).map((final) => {
 function getFinals(data) {
     return fifaData.map(final => final[data]);
 };
-console.log(getFinals('Year'));
+
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
-
-    /* code here */
-
+function getYears() {
+    return getFinals('Year');
 };
 
 getYears();
