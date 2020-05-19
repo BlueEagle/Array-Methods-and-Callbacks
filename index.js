@@ -83,13 +83,12 @@ getAverageGoals(fifaData);
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-
-    /* code here */
-
+function getCountryWins(data, teamInitials) {
+    let winnersByInitials = data.map(finals => (finals["Home Team Goals"] >= finals["Away Team Goals"]) ? finals["Home Team Initials"] : finals["Away Team Initials"]);
+    return winnersByInitials.reduce((sum, entry) => (entry === teamInitials) ? ++sum : sum, 0);
 };
-
-getCountryWins();
+console.log(getCountryWins(fifaData, "USA"));
+getCountryWins(fifaData, "USA");
 
 
 /* Stretch 3: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
